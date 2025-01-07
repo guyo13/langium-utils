@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/validator-util.ts"],
+  "sourcesContent": ["import type {\n\tAstNode,\n\tProperties,\n\tValidationAcceptor,\n\tValidationSeverity,\n} from \"langium\";\n\ntype ErrorFormatter<\n\tN extends AstNode,\n\tP extends keyof N & Properties<N>,\n> = (data: { propertyValue: N[P] }) => string;\n\nexport function uniquePropertyValidator<\n\tN extends AstNode,\n\tP extends keyof N & Properties<N>,\n>(\n\tnodes: Array<N>,\n\tpropertyName: P,\n\taccept: ValidationAcceptor,\n\tformatter: ErrorFormatter<N, P>,\n\tseverity: ValidationSeverity = \"error\",\n) {\n\tif (nodes.length) {\n\t\tconst reported = new Set();\n\t\tfor (const node of nodes) {\n\t\t\tconst propertyValue = node[propertyName];\n\t\t\tif (reported.has(propertyValue)) {\n\t\t\t\taccept(severity, formatter({ propertyValue }), {\n\t\t\t\t\tnode: node,\n\t\t\t\t\tproperty: propertyName,\n\t\t\t\t});\n\t\t\t}\n\t\t\treported.add(propertyValue);\n\t\t}\n\t}\n}\n"],
+  "mappings": "AAYO,SAAS,wBAIf,OACA,cACA,QACA,WACA,WAA+B,SAC9B;AACD,MAAI,MAAM,QAAQ;AACjB,UAAM,WAAW,oBAAI,IAAI;AACzB,eAAW,QAAQ,OAAO;AACzB,YAAM,gBAAgB,KAAK,YAAY;AACvC,UAAI,SAAS,IAAI,aAAa,GAAG;AAChC,eAAO,UAAU,UAAU,EAAE,cAAc,CAAC,GAAG;AAAA,UAC9C;AAAA,UACA,UAAU;AAAA,QACX,CAAC;AAAA,MACF;AACA,eAAS,IAAI,aAAa;AAAA,IAC3B;AAAA,EACD;AACD;",
+  "names": []
+}

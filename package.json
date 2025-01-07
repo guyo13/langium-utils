@@ -1,0 +1,61 @@
+{
+  "name": "@guyo13/langium-utils",
+  "version": "1.0.0",
+  "description": "Utilities for language development using Langium",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js"
+    },
+    "./validator-util": {
+      "types": "./types/validator-util.d.ts",
+      "require": "./lib/cjs/validator-util.js",
+      "import": "./lib/esm/validator-util.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "biome format --write src",
+    "lint": "biome lint src",
+    "lint:fix": "biome lint --write src",
+    "prepare": "pnpm run build",
+    "clean": "rm -rf lib types",
+    "prebuild": "pnpm run clean",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:esbuild": "node build.js",
+    "build": "pnpm run build:types && pnpm run build:esbuild",
+    "postbuild-esm": "echo '{\"type\": \"module\"}' > lib/esm/package.json",
+    "postbuild-cjs": "echo '{\"type\": \"commonjs\"}' > lib/cjs/package.json",
+    "postbuild": "npm run postbuild-esm && npm run postbuild-cjs"
+  },
+  "files": [
+    "src/",
+    "lib/",
+    "types/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyo13/langium-utils.git"
+  },
+  "keywords": [
+    "langium",
+    "language-development"
+  ],
+  "author": "Guy Or",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/guyo13/langium-utils/issues"
+  },
+  "homepage": "https://github.com/guyo13/langium-utils#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "esbuild": "^0.24.2",
+    "langium": "^3.3.0",
+    "typescript": "^5.7.2"
+  }
+}
