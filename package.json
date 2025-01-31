@@ -1,6 +1,6 @@
 {
   "name": "@guyo13/langium-utils",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Utilities for language development using Langium",
   "type": "module",
   "exports": {
@@ -13,6 +13,11 @@
       "types": "./types/validator-util.d.ts",
       "require": "./lib/cjs/validator-util.js",
       "import": "./lib/esm/validator-util.js"
+    },
+    "./traversal": {
+      "types": "./types/travesal.d.ts",
+      "require": "./lib/cjs/travesal.js",
+      "import": "./lib/esm/travesal.js"
     }
   },
   "scripts": {

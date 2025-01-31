@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/index.ts"],
-  "sourcesContent": ["export * from \"./validator-util.js\";\n"],
-  "mappings": ";;;;;;;;;;;;;;;AAAA;AAAA;AAAA,0BAAc,gCAAd;",
+  "sourcesContent": ["export * from \"./validator-util.js\";\nexport * from \"./traversal.js\";\n"],
+  "mappings": ";;;;;;;;;;;;;;;AAAA;AAAA;AAAA,0BAAc,gCAAd;AACA,0BAAc,2BADd;",
   "names": []
 }
