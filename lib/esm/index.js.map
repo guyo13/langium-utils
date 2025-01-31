@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/index.ts"],
-  "sourcesContent": ["export * from \"./validator-util\";\n"],
+  "sourcesContent": ["export * from \"./validator-util.js\";\n"],
   "mappings": "AAAA,cAAc;",
   "names": []
 }

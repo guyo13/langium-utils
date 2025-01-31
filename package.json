@@ -1,6 +1,6 @@
 {
   "name": "@guyo13/langium-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utilities for language development using Langium",
   "type": "module",
   "exports": {
